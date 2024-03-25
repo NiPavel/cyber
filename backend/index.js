@@ -1,31 +1,16 @@
 import express from "express";
 import { sequelize } from "./db.js";
-import Center from "./models/center.js";
+import VotersRouter from "./routes/voters.js";
+import CentersRouter from "./routes/centers.js";
+import AuthRouter from "./routes/auth.js";
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
-
-app.get("/centers", async (req, res) => {
-  try {
-    const centers = await Center.findAll();
-    res.json(centers);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({
-      status: "Error",
-    });
-  }
-});
-
-app.post("/login", (req, res) => {
-  res.send("login");
-});
-
-app.post("/register", (req, res) => {
-  res.send("register");
-});
+app.use("/voters", VotersRouter);
+app.use("/centers", CentersRouter);
+app.use("/login", AuthRouter);
 
 const start = async () => {
   try {

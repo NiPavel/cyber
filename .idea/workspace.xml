@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adae4ac0-5be6-45a1-a702-e415fd2e30b6" name="Changes" comment="" />
+    <list default="true" id="adae4ac0-5be6-45a1-a702-e415fd2e30b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/controllers/CentersController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/controllers/LoginController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/controllers/VotersController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/centers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/voters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,9 +26,12 @@
       </list>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2dxRxUv6ROvxL8UQr1oXiukPxfD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,6 +42,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Pavel/Desktop/cyberproj",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,6 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1710947989526</updated>
       <workItem from="1710947990637" duration="11877000" />
+      <workItem from="1711385526976" duration="2031000" />
     </task>
     <servers />
   </component>
