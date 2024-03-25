@@ -14,7 +14,11 @@ class Voter extends Model {
 }
 Voter.init(
   {
+    idNumber: DataTypes.INTEGER,
     name: DataTypes.STRING,
+    voted: DataTypes.BOOLEAN,
+    voting: DataTypes.BOOLEAN,
+    vote: DataTypes.STRING
   },
   {
     sequelize,
