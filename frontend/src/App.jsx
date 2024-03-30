@@ -3,6 +3,7 @@ import MainLayout from "./pages/MainLayout.jsx";
 import MainPage from "./pages/MainPage.jsx";
 import VoutersLogin from "./pages/VoutersLogin.jsx";
 import VerifiersLogin from "./pages/VerifiersLogin.jsx";
+import Voting from "./pages/Voting.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
       { index: true, element: <MainPage /> },
       { path: "voutersLogin/", element: <VoutersLogin /> },
       { path: "verifiersLogin/", element: <VerifiersLogin /> },
+      { path: "voting/", element: <Voting /> },
     ],
   },
 ]);

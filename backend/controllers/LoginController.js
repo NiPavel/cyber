@@ -1,6 +1,7 @@
 import Voter from "../models/voter.js";
 import Auth from "../models/auth.js";
 import { sendMail } from "../nodemailer/MailSender.js";
+import { encrypt, decrypt } from "../utils/crypto.js";
 
 export const loginVoters = async (req, res) => {
   try {
@@ -16,17 +17,17 @@ export const loginVoters = async (req, res) => {
       Math.random() * (999999 - 100000 + 1) + 100000,
     ).toString(); // Randomize a code
 
-    console.log(code);
-
     sendMail(
       "Authentication code",
       `The code is ${code}`,
       voter.dataValues.email,
     );
 
-    await Auth.create({
-      code,
+    const cryptedCode = encrypt(code);
+
+    await Auth.upsert({
       email: voter.dataValues.email,
+      code: cryptedCode.toString("base64"),
       createdAt: new Date(),
       updatedAt: new Date(),
     });
@@ -46,10 +47,20 @@ export const loginVoters = async (req, res) => {
 export const authenticate = async (req, res) => {
   try {
     const auth = await Auth.findOne({
-      where: { email: req.body.email, code: +req.body.code },
+      where: { email: req.body.email },
     });
+
     if (!auth) {
-      res.status(404).json({
+      return res.status(404).json({
+        error: "No voter like this!",
+      });
+    }
+
+    const code = auth.dataValues.code;
+    const decryptedCode = decrypt(Buffer.from(code, "base64"));
+
+    if (req.body.code !== decryptedCode.toString()) {
+      return res.status(404).json({
         error: "Authentication is not correct!",
       });
     }

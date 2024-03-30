@@ -1,12 +1,14 @@
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = ({ voter, verifier }) => {
   const idNumber = useRef();
   const secretWord = useRef();
 
+  const navigate = useNavigate();
+
   const [err, setErr] = useState(null);
   const [onAuth, setOnAuth] = useState(false);
-  const [authorized, setAuthorized] = useState(false);
 
   const [email, setEmail] = useState("");
 
@@ -47,7 +49,6 @@ const LoginForm = ({ voter, verifier }) => {
         setOnAuth(false);
 
         const verifier = await response.json();
-        setAuthorized(true);
       }
     } catch (err) {
       console.log(err);
@@ -67,7 +68,8 @@ const LoginForm = ({ voter, verifier }) => {
       });
 
       const voter = await responseForAuth.json();
-      console.log(voter);
+
+      navigate("/voting");
     } catch (err) {
       console.log(err);
     }
@@ -75,7 +77,7 @@ const LoginForm = ({ voter, verifier }) => {
 
   return (
     <div className="flex flex-col bg-blue-100 p-8 rounded-2xl">
-      {!onAuth && !authorized && (
+      {!onAuth && (
         <>
           <div className="flex gap-x-4">
             <label htmlFor="id">Enter your id:</label>
@@ -89,7 +91,7 @@ const LoginForm = ({ voter, verifier }) => {
           </button>
         </>
       )}
-      {onAuth && !authorized && (
+      {onAuth && (
         <>
           <div className="flex gap-x-4">
             <label htmlFor="id">Enter the secret word:</label>

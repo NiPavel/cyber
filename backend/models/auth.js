@@ -14,8 +14,11 @@ class Auth extends Model {
 }
 Auth.init(
   {
-    code: DataTypes.STRING,
-    email: DataTypes.STRING,
+    code: DataTypes.TEXT,
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+    },
   },
   {
     sequelize,

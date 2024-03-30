@@ -1,19 +1,27 @@
-import EncryptRsa from 'encrypt-rsa';
+import crypto from "crypto";
 
-const encryptRsa = new EncryptRsa();
+const { publicKey, privateKey } = crypto.generateKeyPairSync("rsa", {
+  modulusLength: 2048,
+});
 
-const { privateKey, publicKey} = encryptRsa.createPrivateAndPublicKeys();
+export const encrypt = (message) => {
+  return crypto.publicEncrypt(
+    {
+      key: publicKey,
+      padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
+      oaepHash: "sha256",
+    },
+    message,
+  );
+};
 
-export const encrypt = (plainText) => {
-    return encryptRsa.encryptStringWithRsaPublicKey({
-        plainText,
-        publicKey
-    });
-}
-
-export const decrypt = (encryptedText) => {
-    return encryptRsa.decryptStringWithRsaPrivateKey({
-        encryptedText,
-        privateKey
-    })
-}
+export const decrypt = (message) => {
+  return crypto.privateDecrypt(
+    {
+      key: privateKey,
+      padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
+      oaepHash: "sha256",
+    },
+    message,
+  );
+};
