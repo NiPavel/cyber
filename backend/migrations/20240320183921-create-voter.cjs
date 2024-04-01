@@ -13,10 +13,9 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      role: Sequelize.STRING,
       idNumber: DataTypes.INTEGER,
       voted: DataTypes.BOOLEAN,
-      voting: DataTypes.BOOLEAN,
-      vote: DataTypes.STRING,
       email: DataTypes.STRING,
       createdAt: {
         allowNull: false,

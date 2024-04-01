@@ -5,13 +5,28 @@ import { encrypt, decrypt } from "../utils/crypto.js";
 
 export const loginVoters = async (req, res) => {
   try {
-    const voter = await Voter.findOne({
-      where: { idNumber: req.body.idNumber },
-    });
-    if (!voter) {
-      return res.status(404).json({
-        error: "The id doesn't exist!",
+    const idNumber = req.body.idNumber;
+    let voter;
+
+    if (req.body.verifierEnterence) {
+      voter = await Voter.findOne({
+        where: { idNumber, role: "verifier" },
       });
+
+      if (!voter) {
+        return res.status(404).json({
+          error: "Error while logging as a Verifier!",
+        });
+      }
+    } else {
+      voter = await Voter.findOne({
+        where: { idNumber: req.body.idNumber },
+      });
+      if (!voter) {
+        return res.status(404).json({
+          error: "Error while logging as a Voter!",
+        });
+      }
     }
     const code = Math.floor(
       Math.random() * (999999 - 100000 + 1) + 100000,
@@ -39,7 +54,7 @@ export const loginVoters = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({
-      error: "Error while logging as Voter!",
+      error: "Error while logging!",
     });
   }
 };
@@ -72,16 +87,6 @@ export const authenticate = async (req, res) => {
     console.log(err);
     res.status(500).json({
       error: "Error via authentication!",
-    });
-  }
-};
-
-export const loginVerifiers = async (req, res) => {
-  try {
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({
-      error: "Error while logging as Verifier!",
     });
   }
 };

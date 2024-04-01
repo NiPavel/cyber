@@ -1,9 +1,8 @@
 import express from "express";
+import { verify, vote } from "../controllers/VotersController.js";
 
 const VotersRouter = express.Router();
 
-VotersRouter.get("/", (req, res) => {
-  res.send("Voters");
-});
+VotersRouter.post("/vote", vote).post("/verify", verify);
 
 export default VotersRouter;

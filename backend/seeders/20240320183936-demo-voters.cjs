@@ -3,7 +3,7 @@
 module.exports = {
     async up (queryInterface, Sequelize) {
         await queryInterface.bulkInsert('Voters', [
-            { name: 'John Cena', createdAt: new Date(), updatedAt: new Date(), idNumber: 336195524, voted: false, email: 'pashnikitenko@gmail.com', voting: false, vote: '' },
+            { name: 'John Cena', createdAt: new Date(), updatedAt: new Date(), idNumber: 336195524, voted: false, email: 'pashnikitenko@gmail.com', voting: false, vote: '', role: "verifier" },
             { name: 'Jane Doe', createdAt: new Date(), updatedAt: new Date(), idNumber: 336195525, voted: false, email: 'voter2@example.com', voting: false, vote: '' },
             { name: 'Jim Beam', createdAt: new Date(), updatedAt: new Date(), idNumber: 336195526, voted: false, email: 'voter3@example.com', voting: false, vote: '' },
             { name: 'Jill Valentine', createdAt: new Date(), updatedAt: new Date(), idNumber: 336195527, voted: false, email: 'voter4@example.com', voting: false, vote: '' },

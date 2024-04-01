@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adae4ac0-5be6-45a1-a702-e415fd2e30b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/controllers/CentersController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/controllers/LoginController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/controllers/VotersController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/centers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/voters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/migrations/votes.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/vote.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/store/voterSlice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/LoginController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/LoginController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/VotersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/VotersController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/migrations/20240320183921-create-voter.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/migrations/20240320183921-create-voter.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/migrations/auth.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/migrations/auth.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/voter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/voter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/voters.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/voters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/seeders/20240320183936-demo-voters.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/seeders/20240320183936-demo-voters.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/LoginForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/LoginForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +37,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -43,7 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Pavel/Desktop/cyberproj",
+    "last_opened_file_path": "C:/Users/Pavel/Desktop/AppoWave",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

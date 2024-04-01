@@ -2,7 +2,7 @@
 import { sequelize } from "../db.js";
 import { Model, DataTypes } from "sequelize";
 
-class Voter extends Model {
+class Vote extends Model {
   /**
    * Helper method for defining associations.
    * This method is not a part of Sequelize lifecycle.
@@ -12,18 +12,23 @@ class Voter extends Model {
     // define association here
   }
 }
-Voter.init(
+Vote.init(
   {
-    idNumber: DataTypes.INTEGER,
-    email: DataTypes.STRING,
-    name: DataTypes.STRING,
-    voted: DataTypes.BOOLEAN,
-    role: DataTypes.STRING,
+    idNumber: {
+      type: DataTypes.INTEGER,
+    },
+    vote: {
+      type: DataTypes.STRING,
+    },
+    city: { type: DataTypes.STRING },
+    email: {
+      type: DataTypes.STRING,
+    },
   },
   {
     sequelize,
-    modelName: "Voter",
+    modelName: "Vote",
   },
 );
 
-export default Voter;
+export default Vote;

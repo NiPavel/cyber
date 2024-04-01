@@ -14,10 +14,10 @@ const LoginForm = ({ voter, verifier }) => {
 
   const onSend = async () => {
     try {
-      const body = {
-        idNumber: idNumber.current.value,
-      };
       if (voter) {
+        const body = {
+          idNumber: idNumber.current.value,
+        };
         const responseForVoter = await fetch(
           "http://localhost:3000/login/voters",
           {
@@ -29,8 +29,6 @@ const LoginForm = ({ voter, verifier }) => {
           },
         );
         const voter = await responseForVoter.json();
-
-        console.log(voter);
         if (voter.status === "ok") {
           setEmail(voter.email);
           setOnAuth(true);
@@ -38,8 +36,11 @@ const LoginForm = ({ voter, verifier }) => {
       }
 
       if (verifier) {
-        setOnAuth(true);
-        const response = await fetch("http://localhost:3000/login/verifiers", {
+        const body = {
+          idNumber: idNumber.current.value,
+          verifier: "verifier",
+        };
+        const response = await fetch("http://localhost:3000/login/voters", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -49,6 +50,10 @@ const LoginForm = ({ voter, verifier }) => {
         setOnAuth(false);
 
         const verifier = await response.json();
+        if (verifier.status === "ok") {
+          setEmail(voter.email);
+          setOnAuth(true);
+        }
       }
     } catch (err) {
       console.log(err);
