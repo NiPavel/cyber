@@ -20,7 +20,6 @@ Vote.init(
     vote: {
       type: DataTypes.STRING,
     },
-    city: { type: DataTypes.STRING },
     email: {
       type: DataTypes.STRING,
     },

@@ -1,7 +1,11 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { voterActions } from "../store/voterSlice.js";
 
 const LoginForm = ({ voter, verifier }) => {
+  const dispatch = useDispatch();
+
   const idNumber = useRef();
   const secretWord = useRef();
 
@@ -28,9 +32,15 @@ const LoginForm = ({ voter, verifier }) => {
             body: JSON.stringify(body),
           },
         );
-        const voter = await responseForVoter.json();
-        if (voter.status === "ok") {
-          setEmail(voter.email);
+        if (!responseForVoter.ok) {
+          return responseForVoter.text().then((text) => {
+            throw new Error(text);
+          });
+        }
+
+        const voterRes = await responseForVoter.json();
+        if (voterRes.status === "ok") {
+          setEmail(voterRes.email);
           setOnAuth(true);
         }
       }
@@ -49,14 +59,15 @@ const LoginForm = ({ voter, verifier }) => {
         });
         setOnAuth(false);
 
-        const verifier = await response.json();
-        if (verifier.status === "ok") {
-          setEmail(voter.email);
+        const verifierRes = await response.json();
+        if (verifierRes.status === "ok") {
+          setEmail(verifierRes.email);
           setOnAuth(true);
         }
       }
     } catch (err) {
-      console.log(err);
+      console.log(err.error);
+      setErr(err);
     }
   };
 
@@ -72,9 +83,17 @@ const LoginForm = ({ voter, verifier }) => {
         body: JSON.stringify(body),
       });
 
-      const voter = await responseForAuth.json();
+      const voterRes = await responseForAuth.json();
 
-      navigate("/voting");
+      dispatch(
+        voterActions.setValues({
+          email: voterRes.email,
+          idNumber: voterRes.idNumber,
+        }),
+      );
+
+      if (voter) navigate("/voting");
+      if (verifier) navigate("/verifying");
     } catch (err) {
       console.log(err);
     }

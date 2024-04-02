@@ -5,22 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adae4ac0-5be6-45a1-a702-e415fd2e30b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/migrations/votes.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/vote.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/store/voterSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Error.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Verifying.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/LoginController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/LoginController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/VotersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/VotersController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/migrations/20240320183921-create-voter.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/migrations/20240320183921-create-voter.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/migrations/auth.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/migrations/auth.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/voter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/voter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/voters.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/voters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/seeders/20240320183936-demo-voters.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/seeders/20240320183936-demo-voters.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/migrations/votes.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/migrations/votes.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/vote.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/vote.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/LoginForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/LoginForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Ui/Card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Ui/Card.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Voting.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Voting.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/voterSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/voterSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,24 +43,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Pavel/Desktop/AppoWave",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Pavel\\AppData\\Roaming\\npm\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pavel/Desktop/AppoWave&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Pavel\\AppData\\Roaming\\npm\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Node.js.voter.js">
     <configuration name="voter.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/backend/models/voter.js" working-dir="$PROJECT_DIR$/backend/models">
       <method v="2" />
@@ -96,6 +91,8 @@
       <updated>1710947989526</updated>
       <workItem from="1710947990637" duration="11877000" />
       <workItem from="1711385526976" duration="2031000" />
+      <workItem from="1712044932952" duration="2127000" />
+      <workItem from="1712072630159" duration="5204000" />
     </task>
     <servers />
   </component>

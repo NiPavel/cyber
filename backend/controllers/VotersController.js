@@ -10,8 +10,8 @@ export const vote = async (req, res) => {
     });
 
     if (vote) {
-      return res.json({
-        error: `The voter with id ${idNumber} has voted already!`,
+      return res.status(400).json({
+        error: `You have voted already!`,
       });
     }
 
@@ -28,7 +28,7 @@ export const vote = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.send(500).json({
+    res.status(500).json({
       error: "Error while voting!",
     });
   }
@@ -72,7 +72,7 @@ export const verify = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.send(500).json({
+    res.status(500).json({
       error: "Error while verifying!",
     });
   }
