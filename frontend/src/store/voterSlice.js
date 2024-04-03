@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   email: "",
   idNumber: "",
+  voted: false,
+  name: "",
 };
 
 const voterSlice = createSlice({
@@ -12,6 +14,8 @@ const voterSlice = createSlice({
     setValues(state, action) {
       state.email = action.payload.email;
       state.idNumber = action.payload.idNumber;
+      state.voted = action.payload.voted;
+      state.name = action.payload.name;
     },
   },
 });

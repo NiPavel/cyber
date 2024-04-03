@@ -14,7 +14,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       role: Sequelize.STRING,
-      idNumber: DataTypes.INTEGER,
+      idNumber: {type: DataTypes.INTEGER, unique: true},
       voted: DataTypes.BOOLEAN,
       email: DataTypes.STRING,
       createdAt: {

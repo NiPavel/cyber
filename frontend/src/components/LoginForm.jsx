@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { voterActions } from "../store/voterSlice.js";
+import axios from "axios";
+import Error from "./Error.jsx";
 
 const LoginForm = ({ voter, verifier }) => {
   const dispatch = useDispatch();
@@ -22,25 +24,10 @@ const LoginForm = ({ voter, verifier }) => {
         const body = {
           idNumber: idNumber.current.value,
         };
-        const responseForVoter = await fetch(
-          "http://localhost:3000/login/voters",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(body),
-          },
-        );
-        if (!responseForVoter.ok) {
-          return responseForVoter.text().then((text) => {
-            throw new Error(text);
-          });
-        }
+        const responseForVoter = await axios.post("/login/voters", body);
 
-        const voterRes = await responseForVoter.json();
-        if (voterRes.status === "ok") {
-          setEmail(voterRes.email);
+        if (responseForVoter.data.status === "ok") {
+          setEmail(responseForVoter.data.email);
           setOnAuth(true);
         }
       }
@@ -50,24 +37,15 @@ const LoginForm = ({ voter, verifier }) => {
           idNumber: idNumber.current.value,
           verifier: "verifier",
         };
-        const response = await fetch("http://localhost:3000/login/voters", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(body),
-        });
-        setOnAuth(false);
+        const response = await axios.post("/login/voters", body);
 
-        const verifierRes = await response.json();
-        if (verifierRes.status === "ok") {
-          setEmail(verifierRes.email);
+        if (response.data.status === "ok") {
+          setEmail(response.data.email);
           setOnAuth(true);
         }
       }
     } catch (err) {
-      console.log(err.error);
-      setErr(err);
+      setErr(err.response.data);
     }
   };
 
@@ -77,59 +55,58 @@ const LoginForm = ({ voter, verifier }) => {
         email,
         code: secretWord.current.value,
       };
-      const responseForAuth = await fetch("http://localhost:3000/login/auth", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-
-      const voterRes = await responseForAuth.json();
+      const responseForAuth = await axios.post("/login/auth", body);
 
       dispatch(
         voterActions.setValues({
-          email: voterRes.email,
-          idNumber: voterRes.idNumber,
+          email: responseForAuth.data.email,
+          idNumber: responseForAuth.data.idNumber,
+          voted: responseForAuth.data.voted,
+          name: responseForAuth.data.name,
         }),
       );
 
       if (voter) navigate("/voting");
       if (verifier) navigate("/verifying");
     } catch (err) {
-      console.log(err);
+      setErr(err.response.data);
     }
   };
 
   return (
-    <div className="flex flex-col bg-blue-100 p-8 rounded-2xl">
-      {!onAuth && (
-        <>
-          <div className="flex gap-x-4">
-            <label htmlFor="id">Enter your id:</label>
-            <input ref={idNumber} type="text" id="id" className="p-1" />
-          </div>
-          <button
-            onClick={onSend}
-            className="mt-4 border-blue-800 border-2 rounded-2xl hover:bg-blue-800 hover:text-white"
-          >
-            Send
-          </button>
-        </>
-      )}
-      {onAuth && (
-        <>
-          <div className="flex gap-x-4">
-            <label htmlFor="id">Enter the secret word:</label>
-            <input ref={secretWord} type="text" id="id" className="p-1" />
-          </div>
-          <button
-            onClick={onAuthenticate}
-            className="mt-4 border-blue-800 border-2 rounded-2xl hover:bg-blue-800 hover:text-white"
-          >
-            Send
-          </button>
-        </>
-      )}
-    </div>
+    <>
+      {err && <Error title={err.error} />}
+      <div className="flex flex-col bg-blue-100 p-8 rounded-2xl">
+        {!onAuth && (
+          <>
+            <div className="flex gap-x-4">
+              <label htmlFor="id">Enter your id:</label>
+              <input ref={idNumber} type="text" id="id" className="p-1" />
+            </div>
+            <button
+              onClick={onSend}
+              className="mt-4 border-blue-800 border-2 rounded-2xl hover:bg-blue-800 hover:text-white"
+            >
+              Send
+            </button>
+          </>
+        )}
+        {onAuth && (
+          <>
+            <div className="flex gap-x-4">
+              <label htmlFor="id">Enter the secret word:</label>
+              <input ref={secretWord} type="text" id="id" className="p-1" />
+            </div>
+            <button
+              onClick={onAuthenticate}
+              className="mt-4 border-blue-800 border-2 rounded-2xl hover:bg-blue-800 hover:text-white"
+            >
+              Send
+            </button>
+          </>
+        )}
+      </div>
+    </>
   );
 };
 

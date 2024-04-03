@@ -18,7 +18,7 @@ Vote.init(
       type: DataTypes.INTEGER,
     },
     vote: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
     email: {
       type: DataTypes.STRING,

@@ -1,8 +1,10 @@
 import express from "express";
-import { verify, vote } from "../controllers/VotersController.js";
+import { getAllVotes, verify, vote } from "../controllers/VotersController.js";
 
 const VotersRouter = express.Router();
 
-VotersRouter.post("/vote", vote).post("/verify", verify);
+VotersRouter.post("/vote", vote)
+  .post("/verify", verify)
+  .get("/votes", getAllVotes);
 
 export default VotersRouter;

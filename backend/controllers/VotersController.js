@@ -1,8 +1,17 @@
 import Vote from "../models/vote.js";
+import { decrypt, encrypt } from "../utils/crypto.js";
+import Voter from "../models/voter.js";
 
 export const vote = async (req, res) => {
   try {
     const voteOfVoter = req.body.vote;
+    let encryptedVote;
+    if (voteOfVoter === "Democrates") {
+      encryptedVote = encrypt("1");
+    } else {
+      encryptedVote = encrypt("0");
+    }
+
     const email = req.body.email;
     const idNumber = req.body.idNumber;
     const vote = await Vote.findOne({
@@ -18,9 +27,14 @@ export const vote = async (req, res) => {
     await Vote.create({
       idNumber,
       email,
-      vote: voteOfVoter,
+      vote: encryptedVote.toString("base64"),
       createdAt: new Date(),
       updatedAt: new Date(),
+    });
+
+    await Voter.upsert({
+      idNumber,
+      voted: true,
     });
 
     res.json({
@@ -64,7 +78,7 @@ export const verify = async (req, res) => {
     if (flag) {
       return res.json({
         message:
-          "The verification ha fault, there one or more voter with 2 votes!",
+          "The verification has fault, there one or more voter with 2 votes!",
       });
     }
     res.json({
@@ -74,6 +88,41 @@ export const verify = async (req, res) => {
     console.log(err);
     res.status(500).json({
       error: "Error while verifying!",
+    });
+  }
+};
+
+export const getAllVotes = async (req, res) => {
+  try {
+    const votes = await Vote.findAll();
+
+    if (votes.length === 0) {
+      return res.status(400).json({
+        message: "No votes yet!",
+      });
+    }
+
+    const parsedVotes = {
+      democrates: 0,
+      republicans: 0,
+    };
+
+    votes.forEach((vote) => {
+      const decryptedVote = decrypt(
+        Buffer.from(vote.dataValues.vote, "base64"),
+      ).toString();
+      if (decryptedVote === "1") {
+        parsedVotes.democrates++;
+      } else {
+        parsedVotes.republicans++;
+      }
+    });
+
+    res.json(parsedVotes);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      error: "Error while getting all votes.",
     });
   }
 };

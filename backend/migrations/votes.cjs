@@ -13,7 +13,7 @@ module.exports = {
               type: Sequelize.INTEGER,
             },
             vote: {
-                type: Sequelize.STRING,
+                type: Sequelize.TEXT,
             },
             email: {
                 type: Sequelize.STRING,

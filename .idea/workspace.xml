@@ -5,15 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adae4ac0-5be6-45a1-a702-e415fd2e30b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Error.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Verifying.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/CentersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/CentersController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/VotersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/VotersController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/migrations/20240320183921-create-voter.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/migrations/20240320183921-create-voter.cjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/migrations/votes.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/migrations/votes.cjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/models/vote.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/vote.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/voter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/voter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/centers.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/centers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/voters.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/voters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/seeders/20240320183936-demo-voters.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/seeders/20240320183936-demo-voters.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Error.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Error.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/LoginForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/LoginForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Ui/Card.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Ui/Card.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Verifying.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Verifying.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Voting.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Voting.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/store/voterSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/voterSlice.js" afterDir="false" />
     </list>
@@ -92,7 +99,8 @@
       <workItem from="1710947990637" duration="11877000" />
       <workItem from="1711385526976" duration="2031000" />
       <workItem from="1712044932952" duration="2127000" />
-      <workItem from="1712072630159" duration="5204000" />
+      <workItem from="1712072630159" duration="5244000" />
+      <workItem from="1712133634702" duration="19089000" />
     </task>
     <servers />
   </component>

@@ -6,6 +6,7 @@ import VerifiersLogin from "./pages/VerifiersLogin.jsx";
 import Voting from "./pages/Voting.jsx";
 import End from "./pages/End.jsx";
 import Verifying from "./pages/Verifying.jsx";
+import axios from "axios";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,8 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
+axios.defaults.baseURL = "http://localhost:3000";
 
 function App() {
   return <RouterProvider router={router} />;

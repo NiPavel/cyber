@@ -14,7 +14,7 @@ class Voter extends Model {
 }
 Voter.init(
   {
-    idNumber: DataTypes.INTEGER,
+    idNumber: { type: DataTypes.INTEGER, unique: true },
     email: DataTypes.STRING,
     name: DataTypes.STRING,
     voted: DataTypes.BOOLEAN,
