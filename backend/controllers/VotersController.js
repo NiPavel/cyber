@@ -65,18 +65,17 @@ export const verify = async (req, res) => {
     for (let i = 0; i < votes.length; i++) {
       let counter = 0;
       for (let j = 0; j < votes.length; j++) {
-        if (votes1[i].dataValues.idNumber === votes2[j].dataValues.id) {
+        if (votes1[i].dataValues.idNumber === votes2[j].dataValues.idNumber) {
           counter++;
           if (counter > 1) {
             flag = true;
-            return;
           }
         }
       }
     }
 
     if (flag) {
-      return res.json({
+      return res.status(400).json({
         message:
           "The verification has fault, there one or more voter with 2 votes!",
       });
@@ -123,6 +122,46 @@ export const getAllVotes = async (req, res) => {
     console.log(err);
     res.status(500).json({
       error: "Error while getting all votes.",
+    });
+  }
+};
+
+export const randomVote = async (req, res) => {
+  try {
+    const voters = await Voter.findAll();
+
+    if (voters.length === 0) {
+      return res.status(404).json({
+        error: "No voters yet!",
+      });
+    }
+
+    for (const voter of voters) {
+      if (!voter.dataValues.voted) {
+        await Vote.create({
+          email: voter.dataValues.email,
+          idNumber: voter.dataValues.idNumber,
+          vote: encrypt(Math.floor(Math.random() * 2).toString()).toString(
+            "base64",
+          ),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        });
+
+        await Voter.upsert({
+          idNumber: voter.dataValues.idNumber,
+          voted: true,
+        });
+      }
+    }
+
+    res.json({
+      message: "success",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      error: "Error while random voting!",
     });
   }
 };
